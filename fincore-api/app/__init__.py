@@ -1,0 +1,1 @@
+# FinCore Core Banking Platform
