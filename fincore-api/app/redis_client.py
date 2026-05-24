@@ -1,5 +1,6 @@
 import json
-from typing import Optional
+from datetime import datetime
+from typing import Optional, Tuple
 import redis.asyncio as redis
 from app.config import settings
 
@@ -156,7 +157,3 @@ async def blacklist_token(token_jti: str, expiry_seconds: int):
 async def is_token_blacklisted(token_jti: str) -> bool:
     r = await get_redis()
     return await r.exists(f"blacklist:{token_jti}") > 0
-
-
-from datetime import datetime
-from typing import Tuple
